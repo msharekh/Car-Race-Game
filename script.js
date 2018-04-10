@@ -312,22 +312,3 @@ setInterval(function(){
   }
 },100);
 
-//DUMB
-
-// window.addEventListener("keydown",function (e) 
-// {
-//   // body...
-//   //alert(e.keyCode);
-//   keys[e.keyCode]=true; 
-// },false);
-
-
-// window.addEventListener("keyup",function (e) 
-// {
-//   // body...
-//   //alert(e.keyCode);
-//   delete keys[e.keyCode];
-// },false);
-
-// 39 r
-// 37 l
