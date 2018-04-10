@@ -1,0 +1,55 @@
+*{
+  padding:0;
+  margin:0;
+  background-color:#1c1c1c;
+  color:white;
+}
+#container
+{
+	margin: 0 auto;
+	width:200px;
+    text-align:center;
+}
+#myCanvas{
+  width:200px;
+  height:400px;
+  background-color:gray;
+}
+
+#powerBtn{
+	width:40px;
+	height: 20px;
+	font-size: 10px;
+    color:white;
+}
+
+
+#rightBtn{
+  width:35px;
+  height: 30px;
+  font-size: 10px;
+    color:white;
+}
+
+
+#leftBtn{
+  width:35px;
+  height: 30px;
+  font-size: 10px;
+    color:white;
+}
+
+#upBtn{
+  width:50px;
+   
+  font-size: 8px;
+    color:white;
+}
+
+
+#downBtn{
+  width:50px;
+   
+  font-size: 8px;
+    color:white;
+}
