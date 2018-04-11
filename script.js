@@ -4,6 +4,7 @@ var c=document.getElementById('myCanvas');
 var ctx=c.getContext('2d'); 
 
 var b=document.getElementById('powerBtn');
+var tb=document.getElementById('tddBtn');
 
 var rb=document.getElementById('rightBtn');
 var lb=document.getElementById('leftBtn');
@@ -104,12 +105,13 @@ if(running) {
 };
 
 
+
+
 //GAME
 function run(){
   update();
   render();
 }
-
 
 
 //ACITON
@@ -150,6 +152,7 @@ function update(){
     s('collision!!!');
     // if (score>0) score--;
 
+    
 
     // //ctx.fillStyle='yellow';
     // //ctx.fillRect(car.x,car.y,car.width,car.height);
@@ -312,3 +315,31 @@ setInterval(function(){
   }
 },100);
 
+/****** Test-Driven Development (TDD) *****/
+// function expect(args) {
+// 	return arg
+// }
+function tdd(){
+
+	 // expect(add(1,1)).toEqual(2);
+
+	 var tddLst=[]
+
+	 var c=	{color:"red",height:30,turnSpeed:20,width:70,x:210,y:110}
+	 var t={color:"black",height:45,speed:5,width:80,x:194.65104532356307,y:70}
+	 var r=[];
+	 r[0]= true;
+     r[1]='r';
+	 
+	 tddLst.push('collision from right',collision (c,t)[1]);
+	 s(tddLst)
+	}
+
+
+//TDD
+tb.onclick=function(){
+  s('click tdd');
+ tdd();
+};
+
+/****** Test-Driven Development (TDD) *****/
