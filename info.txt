@@ -3,3 +3,5 @@ git remote add origin https://github.com/msharekh/Car-Race-Game.git
 git pull origin master
 
 git push
+
+git push -u origin master
