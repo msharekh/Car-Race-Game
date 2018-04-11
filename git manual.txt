@@ -16,3 +16,15 @@ git status
 pick 50d835d Add breakpoint for medium-sized screens
 pick 6f04ddd Add breakpoint for large-sized screens
 pick a3dc99a Center content on page
+
+git remote add origin https://github.com/msharekh/Car-Race-Game.git
+
+git pull origin master
+
+git push
+
+git push -u origin master
+
+git commit -am 'comment '
+
+git push
