@@ -1,0 +1,18 @@
+git log --oneline
+
+git log --stat
+
+git log -p
+
+git log -p fdf5493
+
+git init
+
+git add .
+
+git status
+
+
+pick 50d835d Add breakpoint for medium-sized screens
+pick 6f04ddd Add breakpoint for large-sized screens
+pick a3dc99a Center content on page
