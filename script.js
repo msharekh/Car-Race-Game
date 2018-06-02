@@ -49,7 +49,7 @@ var car={
 var truck={ 
   x:20,
   y:0,
-  speed:5,
+  speed:1,
   color:'black',  
   width:80,
   height:45
@@ -59,13 +59,13 @@ var truck={
 //left and right by KEYS LISTENTERS
 window.onkeydown = function(e) {
    keys[e.keyCode]=true; 
-   s('onkeydown-'+e.keyCode+" "+keys[e]); 
+   s('onkeydown-'+e.keyCode); 
   //s(keys);  
 }
 
 window.onkeyup = function(e) {
   delete keys[e.keyCode];
-  s('onkeyup-'+e.keyCode+" "+keys[e]); 
+  s('onkeyup-'+e.keyCode); 
   //s(keys);
 }
  
@@ -122,7 +122,7 @@ function update(){
   if(dash.y>=HEIGHT) dash.y=0;
 
 
-  //cars
+  //cars right & left
   if (keys[39]) {
       //Right
       s('right');
@@ -134,6 +134,17 @@ function update(){
       if (car.x>0) car.x-=car.turnSpeed;
   }
 
+//cars up & down
+  if (keys[38]) {
+      //up
+      s('up');
+     
+  }
+  if (keys[40]) {
+      //down
+      s('down');
+      
+  }
 
   //trucks  
   truck.y+=truck.speed;
