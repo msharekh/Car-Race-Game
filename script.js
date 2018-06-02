@@ -1,9 +1,10 @@
 
-// VARIABILES
+// VARIABILESF
 var c=document.getElementById('myCanvas');
-var ctx=c.getContext('2d'); 
+var ctxDrawer=c.getContext('2d'); 
 
-var b=document.getElementById('powerBtn');
+
+var pb=document.getElementById('pauseBtn');
 var tb=document.getElementById('tddBtn');
 
 var rb=document.getElementById('rightBtn');
@@ -12,21 +13,24 @@ var lb=document.getElementById('leftBtn');
 var ub=document.getElementById('upBtn');
 var db=document.getElementById('downBtn');
 
-b.width='10px';
+pb.width='10px';
+
 var running=true;
 var finished=false;
+
 var score=0;
 
 var isCollision;
 
-var WIDTH=200+100;
-var HEIGHT=400-250;
+var WIDTH=300;
+var HEIGHT=500;
+
+
 // var speed=50;
 
 // http://images.clipartpanda.com/car-clipart-top-view-red-car-top-view-hi.png
 
 var keys=[];
-
 
 //OBJECTS
 var dash={
@@ -42,7 +46,7 @@ var car={
   y:110,
   color:'red',
   turnSpeed:10,
-  width:70,
+  width:50,
   height:30
 };
 
@@ -51,7 +55,7 @@ var truck={
   y:0,
   speed:10,
   color:'black',  
-  width:80,
+  width:60,
   height:45
 };
 
@@ -92,7 +96,7 @@ db.onclick=function(){
   }
 
 //POWER
-b.onclick=function(){
+pb.onclick=function(){
   s('click');
 if(running) {
   running=false;
@@ -165,8 +169,8 @@ function update(){
 
     
 
-    // //ctx.fillStyle='yellow';
-    // //ctx.fillRect(car.x,car.y,car.width,car.height);
+    // //ctxDrawer.fillStyle='yellow';
+    // //ctxDrawer.fillRect(car.x,car.y,car.width,car.height);
     
     // s(isDir);
     //  //push car
@@ -187,65 +191,67 @@ function update(){
 function render(){
 
   //clear
-  ctx.fillStyle='gray';
-  ctx.fillRect(0,0,WIDTH,HEIGHT);
+  ctxDrawer.fillStyle='gray';
+  ctxDrawer.fillRect(0,0,WIDTH,HEIGHT);
+
+  // c.style.backgroundColor= 'red';
 
   //draw H lines
-  ctx.fillStyle='black';  
+  ctxDrawer.fillStyle='black';  
   for(var h=10;h<HEIGHT;h+=10){
-    //ctx.fillRect(0,h,WIDTH,1); 
+    //ctxDrawer.fillRect(0,h,WIDTH,1); 
   }
 
   //draw V lines
-  ctx.fillStyle='black';  
+  ctxDrawer.fillStyle='black';  
   for(var v=10;v<WIDTH;v+=10){
-    //ctx.fillRect(v,0,1,HEIGHT);
+    //ctxDrawer.fillRect(v,0,1,HEIGHT);
   }
 
  
-  ctx.fillStyle='red'; 
-  ctx.fillRect(0,0,WIDTH,1);
-  ctx.fillRect(0,HEIGHT,WIDTH,1);
+  // ctxDrawer.fillStyle='red'; 
+  // ctxDrawer.fillRect(0,0,WIDTH,1);
+  // ctxDrawer.fillRect(0,HEIGHT,WIDTH,1);
 
 
   //draw dash s
-  ctx.fillStyle='white';  
+  ctxDrawer.fillStyle='white';  
       for(var i=0;i<HEIGHT;i+=60){
-        ctx.fillRect(dash.x,dash.y+i,dash.width,dash.height);
-        ctx.fillRect(dash.x+100,dash.y+i,dash.width,dash.height);
-        ctx.fillRect(dash.x+200,dash.y+i,dash.width,dash.height);
+        ctxDrawer.fillRect(dash.x,dash.y+i,dash.width,dash.height);
+        ctxDrawer.fillRect(dash.x+100,dash.y+i,dash.width,dash.height);
+        ctxDrawer.fillRect(dash.x+200,dash.y+i,dash.width,dash.height);
         //s(dash.y+':'+(HEIGHT));  
     }
   
   //draw car
-  // ctx.fillStyle=car.color;
-  // ctx.fillRect(car.x,car.y,car.width,car.height);
+  // ctxDrawer.fillStyle=car.color;
+  // ctxDrawer.fillRect(car.x,car.y,car.width,car.height);
   var carImg=new Image();
   carImg.src="car.png";
-  ctx.drawImage(carImg,car.x,car.y,car.width,car.height);
+  ctxDrawer.drawImage(carImg,car.x,car.y,car.width,car.height);
 
    //draw truck
-  // ctx.fillStyle=truck.color;
-  // ctx.fillRect(truck.x,truck.y,truck.width,truck.height);
+  // ctxDrawer.fillStyle=truck.color;
+  // ctxDrawer.fillRect(truck.x,truck.y,truck.width,truck.height);
   var truckImg=new Image();
   truckImg.src="truck.png";
-  ctx.drawImage(truckImg,truck.x,truck.y,truck.width,truck.height);
+  ctxDrawer.drawImage(truckImg,truck.x,truck.y,truck.width,truck.height);
 
   //draw score
-  // ctx.fillStyle='yello';
-  // ctx.fillText(score,20,20);
+  // ctxDrawer.fillStyle='yello';
+  // ctxDrawer.fillText(score,20,20);
 
-  ctx.font = "50px Verdana";
+  ctxDrawer.font = "50px Verdana";
 // Create gradient
-  var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+  var gradient = ctxDrawer.createLinearGradient(0, 0, c.width, 0);
   gradient.addColorStop("0", "magenta");
   gradient.addColorStop("0.5", "blue");
   gradient.addColorStop("1.0", "red");
   // Fill with gradient
-  ctx.fillStyle = gradient;
-  ctx.fillText(score, 100, 90);
-  //ctx.fillStyle='blue';
-  //ctx.fillRect(70,HEIGHT-280,20,30);
+  ctxDrawer.fillStyle = gradient;
+  ctxDrawer.fillText(score, 100, 90);
+  //ctxDrawer.fillStyle='blue';
+  //ctxDrawer.fillRect(70,HEIGHT-280,20,30);
 
 
   
