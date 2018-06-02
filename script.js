@@ -32,7 +32,7 @@ var keys=[];
 var dash={
   x:30,
   y:0,
-  speed:50,
+  // speed:50,
   width:10,
   height:30
 };
@@ -41,7 +41,7 @@ var car={
   x:150,
   y:110,
   color:'red',
-  turnSpeed:20,
+  turnSpeed:10,
   width:70,
   height:30
 };
@@ -49,7 +49,7 @@ var car={
 var truck={ 
   x:20,
   y:0,
-  speed:1,
+  speed:10,
   color:'black',  
   width:80,
   height:45
@@ -59,13 +59,13 @@ var truck={
 //left and right by KEYS LISTENTERS
 window.onkeydown = function(e) {
    keys[e.keyCode]=true; 
-   s('onkeydown-'+e.keyCode); 
+   // s('onkeydown-'+e.keyCode); 
   //s(keys);  
 }
 
 window.onkeyup = function(e) {
   delete keys[e.keyCode];
-  s('onkeyup-'+e.keyCode); 
+  // s('onkeyup-'+e.keyCode); 
   //s(keys);
 }
  
@@ -125,12 +125,12 @@ function update(){
   //cars right & left
   if (keys[39]) {
       //Right
-      s('right');
-      if (car.x+car.width<=WIDTH) car.x+=car.turnSpeed;
+      s('right '+car.x+"|"+car.width+"|"+WIDTH);
+      if (car.x+car.width<WIDTH) car.x+=car.turnSpeed;
   }
   if (keys[37]) {
       //Left
-      s('left');
+      s('left '+car.x+"|"+car.width+"|"+WIDTH);
       if (car.x>0) car.x-=car.turnSpeed;
   }
 
@@ -147,12 +147,12 @@ function update(){
   }
 
   //trucks  
-  truck.y+=truck.speed;
-      //repeate
-      if(truck.y>=HEIGHT) {
-        truck.y=0;
-        truck.x=Math.random()*WIDTH;
-      }
+  // truck.y+=truck.speed;
+  //     //repeate
+  //     if(truck.y>=HEIGHT) {
+  //       truck.y=0;
+  //       truck.x=Math.random()*WIDTH;
+  //     }
 
   isCollision=false;
   
@@ -177,7 +177,7 @@ function update(){
 
   }
   else{
-    score++;
+    // score++;
   }
 }
 
